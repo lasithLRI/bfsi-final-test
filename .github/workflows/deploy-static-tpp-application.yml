@@ -6,7 +6,7 @@ on:
       - development
     paths:
       - 'use-case-demos/static-tpp-application/**'
-  workflow_dispatch: # allows manual trigger from the Actions tab
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -42,7 +42,10 @@ jobs:
       - name: Build React App
         run: pnpm run build
         env:
-          CI: false # prevents warnings from being treated as errors
+          CI: false
+
+      - name: List dist folder (debug)
+        run: ls -la dist/
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
@@ -50,6 +53,3 @@ jobs:
           folder: use-case-demos/static-tpp-application/dist
           branch: gh-pages
           clean: true
-
-      - name: List dist folder
-        run: ls -la use-case-demos/static-tpp-application/
