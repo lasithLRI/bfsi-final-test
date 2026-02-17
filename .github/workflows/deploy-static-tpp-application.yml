@@ -51,5 +51,3 @@ jobs:
           branch: gh-pages
           clean: true
 
-      - name: List dist folder
-        run: ls -la use-case-demos/static-tpp-application/
