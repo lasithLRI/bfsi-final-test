@@ -3,7 +3,7 @@ name: Deploy Static TPP Application to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - 'use-case-demos/static-tpp-application/**'
   workflow_dispatch: # allows manual trigger from the Actions tab
