@@ -57,10 +57,11 @@ const SplashScreen = ({ onClose }: SplashScreenProps) => {
             onClose={handleClose}
             aria-labelledby="splash-dialog-title"
             aria-describedby="splash-dialog-description"
+            maxWidth={false}
             PaperProps={{
                 sx: {
-                    width: 620,
-                    minHeight: 320,
+                    width: 900,
+                    minHeight: 370,
                     borderRadius: "16px",
                     overflow: "hidden",
                     display: "flex",
@@ -79,7 +80,10 @@ const SplashScreen = ({ onClose }: SplashScreenProps) => {
             />
 
             {/* ── Title ── */}
-            <DialogTitle id="splash-dialog-title" sx={{ pt: 3, pb: 2, px: 3 }}>
+            <DialogTitle
+                id="splash-dialog-title"
+                sx={{ pt: 6, pb: 2, px: 4, textAlign: "center" }}
+            >
                 <Typography
                     variant="h5"
                     component="span"
@@ -97,48 +101,57 @@ const SplashScreen = ({ onClose }: SplashScreenProps) => {
             {/* ── Body ── */}
             <DialogContent
                 id="splash-dialog-description"
-                sx={{ pt: 0.5, pb: 3, px: 3, flex: 1 }}
+                sx={{ pt: 1, pb: 3, px: 4, flex: 1 }}
             >
+                {/* Justified body text */}
                 <Typography
                     variant="body1"
                     sx={{
                         fontFamily: "inherit",
                         color: "text.primary",
-                        lineHeight: 1.75,
+                        lineHeight: 1.8,
                         mb: 2.5,
+                        textAlign: "justify",
                     }}
                 >
-                    An{" "}
+                    Welcome to{" "}
                     <Typography
                         component="span"
                         variant="body1"
                         sx={{ fontWeight: 600, fontFamily: "inherit", color: "primary.main" }}
                     >
-                        Open Banking
-                    </Typography>{" "}
-                    demo that lets you aggregate financial data using the{" "}
-                    <Typography
-                        component="span"
-                        variant="body1"
-                        sx={{ fontWeight: 600, fontFamily: "inherit", color: "text.primary" }}
-                    >
-                        Add Account
-                    </Typography>{" "}
-                    feature and simulate direct payments through{" "}
-                    <Typography
-                        component="span"
-                        variant="body1"
-                        sx={{ fontWeight: 600, fontFamily: "inherit", color: "text.primary" }}
-                    >
-                        Pay Bills
+                        Accounts Central
                     </Typography>
-                    . Explore both AISP and PISP journeys end-to-end — all login and OTP
-                    fields accept any alphanumeric input for simulation purposes.
+                    , an Open Banking demo environment. Use the{" "}
+                    <Typography
+                        component="span"
+                        variant="body1"
+                        sx={{ fontWeight: 600, fontFamily: "inherit", color: "text.primary" }}
+                    >
+                        Account Aggregation Flow
+                    </Typography>{" "}
+                    to securely link and view balances across multiple banks, or try the{" "}
+                    <Typography
+                        component="span"
+                        variant="body1"
+                        sx={{ fontWeight: 600, fontFamily: "inherit", color: "text.primary" }}
+                    >
+                        Payments Flow
+                    </Typography>{" "}
+                    to simulate real-time bill payments. All login and
+                    OTP fields accept any alphanumeric input — no real credentials required.
                 </Typography>
 
-                {/* Feature chips */}
-                <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
-                    {["AISP Journey", "PISP Journey", "Simulation Mode"].map((label) => (
+                {/* Feature chips — centered */}
+                <Box
+                    sx={{
+                        display: "flex",
+                        gap: 1,
+                        flexWrap: "wrap",
+                        justifyContent: "center",
+                    }}
+                >
+                    {["Account Aggregation Flow", "Payments Flow", "Simulation Mode"].map((label) => (
                         <Chip
                             key={label}
                             label={label}
@@ -161,7 +174,7 @@ const SplashScreen = ({ onClose }: SplashScreenProps) => {
             {/* ── Footer ── */}
             <DialogActions
                 sx={{
-                    px: 3,
+                    px: 4,
                     py: 2,
                     display: "flex",
                     alignItems: "center",
@@ -175,12 +188,10 @@ const SplashScreen = ({ onClose }: SplashScreenProps) => {
                     Demo environment — no real data is used
                 </Typography>
 
-                {/* Pill-shaped button matching the app's "Add Account" style */}
                 <Button
                     variant="contained"
                     color="primary"
                     onClick={handleClose}
-                    autoFocus
                     sx={{
                         fontFamily: "inherit",
                         fontWeight: 600,
